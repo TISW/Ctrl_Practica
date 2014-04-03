@@ -31,7 +31,7 @@ class Users extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('Persona_rut, password, create, modified, estado', 'required'),
+			array('Persona_rut, password', 'required'),
 			array('Persona_rut', 'length', 'max'=>12),
 			array('password', 'length', 'max'=>32),
 			array('estado', 'length', 'max'=>45),
@@ -95,6 +95,12 @@ class Users extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+
+	public function verified()
+	{
+		return true;
+	}
+
 
 	/**
 	 * Returns the static model of the specified AR class.
