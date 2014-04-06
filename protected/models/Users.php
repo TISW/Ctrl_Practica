@@ -4,14 +4,14 @@
  * This is the model class for table "users".
  *
  * The followings are the available columns in table 'users':
- * @property string $Persona_rut
+ * @property string $username
  * @property string $password
+ * @property string $role
  * @property string $create
  * @property string $modified
- * @property string $estado
  *
  * The followings are the available model relations:
- * @property Persona $personaRut
+ * @property Persona $username0
  */
 class Users extends CActiveRecord
 {
@@ -22,7 +22,15 @@ class Users extends CActiveRecord
 	{
 		return 'users';
 	}
-
+	public function validatePassword($password)
+	{
+	return $this->hashPassword($password)===$this->password;
+	}
+ 
+	public function hashPassword($password)
+	{
+		return $password;
+	}
 	/**
 	 * @return array validation rules for model attributes.
 	 */
@@ -31,13 +39,13 @@ class Users extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('Persona_rut, password, create, modified, estado', 'required'),
-			array('Persona_rut', 'length', 'max'=>12),
+			array('username, password, role', 'required'),
+			array('username', 'length', 'max'=>12),
 			array('password', 'length', 'max'=>32),
-			array('estado', 'length', 'max'=>45),
+			array('role', 'length', 'max'=>10),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('Persona_rut, password, create, modified, estado', 'safe', 'on'=>'search'),
+			array('username, password, role, create, modified', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -49,7 +57,7 @@ class Users extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'personaRut' => array(self::BELONGS_TO, 'Persona', 'Persona_rut'),
+			'username0' => array(self::BELONGS_TO, 'Persona', 'username'),
 		);
 	}
 
@@ -59,11 +67,11 @@ class Users extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'Persona_rut' => 'Persona Rut',
+			'username' => 'Username',
 			'password' => 'Password',
+			'role' => 'Role',
 			'create' => 'Create',
 			'modified' => 'Modified',
-			'estado' => 'Estado',
 		);
 	}
 
@@ -85,11 +93,11 @@ class Users extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('Persona_rut',$this->Persona_rut,true);
+		$criteria->compare('username',$this->username,true);
 		$criteria->compare('password',$this->password,true);
+		$criteria->compare('role',$this->role,true);
 		$criteria->compare('create',$this->create,true);
 		$criteria->compare('modified',$this->modified,true);
-		$criteria->compare('estado',$this->estado,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

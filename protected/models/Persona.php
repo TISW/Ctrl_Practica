@@ -51,7 +51,7 @@ class Persona extends CActiveRecord
 		return array(
 			'alumnos' => array(self::HAS_ONE, 'Alumnos', 'Persona_rut'),
 			'profesor' => array(self::HAS_ONE, 'Profesor', 'Persona_rut'),
-			'users' => array(self::HAS_ONE, 'Users', 'Persona_rut'),
+			'users' => array(self::HAS_ONE, 'Users', 'username'),
 		);
 	}
 

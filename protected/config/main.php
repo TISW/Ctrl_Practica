@@ -8,7 +8,7 @@
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'Sistema de Apoyo Control de Practicas',
-
+	'defaultController'=>'Usuario',
 	// preloading 'log' component
 	'preload'=>array('log'),
 
@@ -35,22 +35,23 @@ return array(
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
+			'loginUrl'=>array('Usuario/login'),
 		),
+
 		// uncomment the following to enable URLs in path-format
 
 		'urlManager'=>array(
 			'urlFormat'=>'path',
-			'showScriptName'=>false,
-			'urlSuffix'=>'.aspx',
 			'rules'=>array(
+				'urlFormat'=>'path',
+				'showScriptName'=>false,
+				//'urlSuffix'=>'.aspx',
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
 			),
 		),
-
 		// uncomment the following to use a MySQL database
-		
 		'db'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=db_ctrl_practicas',
 			'emulatePrepare' => true,
@@ -58,7 +59,7 @@ return array(
 			'password' => 'face2014',
 			'charset' => 'utf8',
 		),
-		
+
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors
 			'errorAction'=>'site/error',
