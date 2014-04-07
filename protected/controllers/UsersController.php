@@ -7,11 +7,7 @@ class UsersController extends Controller
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
 	public $layout='//layouts/Loginlayout';
-<<<<<<< HEAD
 	public $defaultAction = 'login';
-=======
-	 public $defaultAction = 'login';
->>>>>>> a4e228fb6be3462c76b99c72f24e615f2963081b
 	/**
 	 * @return array action filters
 	 */
@@ -92,11 +88,7 @@ class UsersController extends Controller
 			echo "hola";
 			$model->attributes=$_POST['Users'];
 
-<<<<<<< HEAD
 				if($model->authenticate())$this->redirect(array('view','id'=>$model->Persona_rut));
-=======
-				if($model->verified())$this->redirect(array('view','id'=>$model->Persona_rut));
->>>>>>> a4e228fb6be3462c76b99c72f24e615f2963081b
 		}
 
 		$this->render('Login',array(

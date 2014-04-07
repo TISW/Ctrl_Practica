@@ -32,12 +32,7 @@
 				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
 				array('label'=>'Contact', 'url'=>array('/site/contact')),
 				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-<<<<<<< HEAD
 				array('label'=>'Usuarios', 'url'=>array('/Usuario/admin'), 'visible'=>!Yii::app()->user->isGuest),
-=======
-				array('label'=>'Personas', 'url'=>array('/persona/'), 'visible'=>!Yii::app()->user->isGuest),
-				array('label'=>'Usuarios', 'url'=>array('/Users/')),
->>>>>>> a4e228fb6be3462c76b99c72f24e615f2963081b
 				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 			),
 		)); ?>

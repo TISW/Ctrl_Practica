@@ -8,14 +8,9 @@
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'Sistema de Apoyo Control de Practicas',
-<<<<<<< HEAD
 	'defaultController'=>'Usuario',
-=======
-	'defaultController'=>'Users',
->>>>>>> a4e228fb6be3462c76b99c72f24e615f2963081b
 	// preloading 'log' component
 	'preload'=>array('log'),
-
 
 	// autoloading model and component classes
 	'import'=>array(
