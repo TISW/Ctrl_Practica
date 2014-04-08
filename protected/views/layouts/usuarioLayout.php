@@ -5,7 +5,7 @@
 		<div class="col-xs-12 col-sm-2 col-md-2">
 			<ul class="nav nav-pills nav-stacked" style="max-width: 300px;">
 				<li><a href="<?php echo Yii::app()->createUrl('Usuario/Crear'); ?>">Ingresar Usuario</a></li>
-				<li><a href="bitacoras.php">Administrar Usuario</a></li>
+				<li><a href="<?php echo Yii::app()->createUrl('Usuario/admin'); ?>">Administrar Usuario</a></li>
 			</ul>
 		</div>
 		<div class="col-xs-12 col-sm-10 col-md-10">

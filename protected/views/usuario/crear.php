@@ -10,7 +10,6 @@ $this->breadcrumbs=array(
 	'id'=>'users-form',
 	'enableAjaxValidation'=>true,
 )); ?>
-	<?php var_dump($personas) ?>
 	<?php echo $form->errorSummary($user); ?>
 	<div class="form-group">
 		<div class="input-group">
