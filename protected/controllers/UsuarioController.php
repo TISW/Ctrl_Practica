@@ -2,46 +2,38 @@
 
 class UsuarioController extends Controller
 {
-	/**
-	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
-	 * using two-column layout. See 'protected/views/layouts/column2.php'.
-	 */
-	public $layout='//layouts/sappLayout';
-	/**
-	 * @return array action filters
-	 */
+
+	public $layout='//layouts/usuarioLayout';
+	public $action='admin';
+
 	public function filters()
 	{
 		return array(
-			'accessControl', // perform access control for CRUD operations
-			'postOnly + delete', // we only allow deletion via POST request
+			'accessControl', 
+			'postOnly + delete', 
 		);
 	}
-	/**
-	 * Specifies the access control rules.
-	 * This method is used by the 'accessControl' filter.
-	 * @return array access control rules
-	 */
+
 	public function accessRules()
 	{
 		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('login','crear'),
+			array('allow',
+				'actions'=>array('login'),
 				'users'=>array('*'),
 			),
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','logout'),
+			array('allow', 
+				'actions'=>array('index','view','crear'),
+				'users'=>array('admin'),
+			),
+			array('allow',
+				'actions'=>array('update','logout'),
 				'users'=>array('@'),
 			),
-			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
-				'users'=>array('@'),
-			),
-			array('allow', // allow admin user to perform 'admin' and 'delete' actions
+			array('allow',
 				'actions'=>array('admin','delete'),
-				'users'=>array('admin','alumno'),
+				'users'=>array('admin'),
 			),
-			array('deny',  // deny all users
+			array('deny',
 				'users'=>array('*'),
 			),
 		);
@@ -119,6 +111,7 @@ class UsuarioController extends Controller
 		if(isset($_POST['Users']))
 		{
 			$user->attributes=$_POST['Users'];
+			$user->password=$user->hashPassword($user->password);
 			if($user->save())
 				$this->redirect(array('admin'));
 		}
@@ -203,7 +196,7 @@ class UsuarioController extends Controller
 	{
 		$model=Users::model()->findByPk($id);
 		if($model===null)
-			throw new CHttpException(404,'The requested page does not exist.');
+			throw new CHttpException(404,'La pagina solicitada,no existe.');
 		return $model;
 	}
 

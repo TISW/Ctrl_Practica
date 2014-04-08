@@ -7,7 +7,7 @@
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'Sistema de Apoyo Control de Practicas',
+	'name'=>'SAPP',
 	'defaultController'=>'Usuario',
 	// preloading 'log' component
 	'preload'=>array('log'),
