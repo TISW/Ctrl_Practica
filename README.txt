@@ -1,4 +1,4 @@
-Este Archivo se a Creado en simbolo de ayuda se ira completando en funcion a la necesidad requerida
+﻿Este Archivo se a Creado en simbolo de ayuda se ira completando en funcion a la necesidad requerida
 
 Acceso a recursos del Sistema
 
@@ -8,6 +8,9 @@ Acceso a recursos del Sistema
 Paginas o acciones del Sistema
 
    <li><a href="<?php echo Yii::app()->createUrl('Usuario/logout'); ?>">Cerrar Sesión</a></li>
+
+ Donde: Usuario = controlador.
+	logout = accion.
 
 Variables de Session
 
