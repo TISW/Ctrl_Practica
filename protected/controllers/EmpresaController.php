@@ -2,6 +2,17 @@
 
 class EmpresaController extends Controller
 {
+	public $layout='//layouts/practicasLayout'; //página donde se redirige el content.
+	public $action='admin';
+
+	public function filters()
+	{
+		return array(
+			'accessControl', 
+			'postOnly + delete', 
+		);
+	}
+
 	public function actionBuscar()
 	{
 		$this->render('buscar');

@@ -23,7 +23,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <!--Menu de Usuario-->
           <ul class="nav navbar-nav">
-            <li><a href="index.php">Practicas</a></li>
+            <li><a href="<?php echo Yii::app()->createUrl('Practicas/CrearPractica'); ?>">Practicas</a></li>
             <li><a href="empresa.php">Empresas</a></li>
             <li><a href="bitacoras.php">Bitacoras</a></li>
             <li><a href="alumno.php">Alumnos</a></li>
